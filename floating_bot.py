@@ -51,7 +51,7 @@ class FloatingBot:
             try:
                 self.tts_engine = pyttsx3.init()
                 self.tts_enabled = True
-            except:
+            except Exception:
                 self.tts_enabled = False
         else:
             self.tts_enabled = False
@@ -86,7 +86,7 @@ class FloatingBot:
         """Save current configuration to config.json"""
         config_path = os.path.join(os.path.dirname(__file__), 'config.json')
         with open(config_path, 'w') as f:
-            json.dump(self.config, indent=2, fp=f)
+            json.dump(self.config, f, indent=2)
     
     def setup_window(self):
         """Configure the floating window"""
@@ -238,7 +238,9 @@ class FloatingBot:
                 model_name = self.config.get('model', 'phi3:mini')
                 
                 # Check if the configured model is available
-                model_exists = any(model_name in model.get('model', '') for model in models.get('models', []))
+                model_exists = any(model.get('model', '') == model_name or 
+                                 model.get('name', '') == model_name 
+                                 for model in models.get('models', []))
                 
                 if not model_exists:
                     self.update_chat(
