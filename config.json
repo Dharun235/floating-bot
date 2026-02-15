@@ -6,6 +6,9 @@
   "always_on_top": true,
   "supported_languages": {
     "english": "en-US",
-    "swedish": "sv-SE"
+    "swedish": "sv-SE",
+    "spanish": "es-ES",
+    "german": "de-DE",
+    "french": "fr-FR"
   }
 }
