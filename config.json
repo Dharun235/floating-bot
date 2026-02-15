@@ -1,0 +1,11 @@
+{
+  "model": "phi3:mini",
+  "language": "english",
+  "window_width": 400,
+  "window_height": 500,
+  "always_on_top": true,
+  "supported_languages": {
+    "english": "en-US",
+    "swedish": "sv-SE"
+  }
+}
